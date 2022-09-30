@@ -1,13 +1,10 @@
-import os
-from flask import Flask, render_template
+from flask import Flask
+from . import views
 
 
 def create_app():
     app = Flask(__name__)
 
-    @app.route("/")
-    def hello_world():
-        files = os.listdir(app.static_folder)
-        return render_template('index.html', files=files)
+    app.add_url_rule("/", view_func=views.hello_world)
 
     return app
