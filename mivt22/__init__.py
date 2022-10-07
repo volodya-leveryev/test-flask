@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import Flask
 from . import database
 from . import views
@@ -13,5 +14,6 @@ def create_app():
     database.db.init_app(app)
 
     app.add_url_rule("/", view_func=views.hello_world)
+    app.add_url_rule("/upload/", view_func=views.upload_file, methods=['POST'])
 
     return app

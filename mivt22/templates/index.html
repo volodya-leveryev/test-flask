@@ -14,5 +14,13 @@
     </li>
     {% endfor %}
 </ul>
+{% if error %}
+<p>ОШИБКА!!!</p>
+{% endif %}
+<form action="/upload/" method="post" enctype="multipart/form-data">
+    <label for="new_file">Выберите файл</label>
+    <input type="file" name="new_file" id="new_file">
+    <input type="submit" value="Загрузить">
+</form>
 </body>
 </html>
